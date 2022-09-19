@@ -3,6 +3,54 @@
     height: 150px;
     width: 100%;
     background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+    border-bottom: 1px;
+    border-color: aqua;
+    
+}
+
+.title{
+    color: aqua;
+}
+.subtitle {
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.secondHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 30px;
+    margin-top: 1px;
+  }
+
+  .btnBox {
+    width: 49.9%;
+    height: 100%;
+  }
+  
+  .btn{
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(37, 100, 131);
     color: white;
     font-family: 'Poppins', sans-serif;
-}
+    
+  }
+  .btn:hover{
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(32, 145, 173);
+    color: aqua;
+    letter-spacing: 1px;
+ 
+    transition: all ease 0.3s;
+    
+  }

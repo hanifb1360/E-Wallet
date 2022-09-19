@@ -101,7 +101,7 @@ const Card = () => {
 
   return (
     <div className="add-card-container">
-      <h3>Register a new CARD</h3>
+      
 
       <div className="creditCard">
         <div className="logo">{values.bankName}</div>

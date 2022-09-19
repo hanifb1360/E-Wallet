@@ -1,11 +1,13 @@
 import "./components/styles/App.css";
 import Card from "./components/card/Card";
 import Ewallet from "./components/pages/Ewallet";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchRandomUser } from "./components/redux/cardSlice";
 import { useEffect } from "react";
-import Header from "./components/Header";
+import Header from "./components/headers/Header";
+import SecondHeader from "./components/headers/SecondHeader";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -17,15 +19,10 @@ function App() {
     <div className="App">
 
     <Header/>
+    <SecondHeader/>
+    
 
-      <div className="btn-container">
-      <Link to="/ewallet">
-        <button className="btn"> E-wallet </button>
-      </Link>
-      <Link to="/addcard">
-        <button className="btn"> AddCard</button>
-      </Link>
-      </div>
+      
 
       <Routes>
         <Route path="/" element={<Card />} />
