@@ -20,15 +20,13 @@ function App() {
 
     <Header/>
     <SecondHeader/>
-    
-
-      
-
+    <div className="main">
       <Routes>
         <Route path="/" element={<Card />} />
         <Route path="/Addcard" element={<Card />} />
         <Route path="/ewallet" element={<Ewallet />} />
       </Routes>
+      </div>
     </div>
   );
 }
