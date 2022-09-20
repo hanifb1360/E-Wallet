@@ -14,3 +14,9 @@
 .card-holder-name {
   text-transform: uppercase;
 }
+
+.walletCardsList {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}

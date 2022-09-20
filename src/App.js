@@ -1,5 +1,5 @@
 import "./components/styles/App.css";
-import Card from "./components/card/Card";
+import Card from "./components/pages/Card";
 import Ewallet from "./components/pages/Ewallet";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -22,7 +22,7 @@ function App() {
     <SecondHeader/>
     <div className="main">
       <Routes>
-        <Route path="/" element={<Card />} />
+        {/* <Route path="/" element={<Card />} /> */}
         <Route path="/Addcard" element={<Card />} />
         <Route path="/ewallet" element={<Ewallet />} />
       </Routes>

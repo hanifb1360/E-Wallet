@@ -28,14 +28,27 @@ const Ewallet = () => {
       return "inactive";
     }
   };
+
+  // delete function
+
+//   const removeItem =(id) => {
+//     const deleted = cards.filter((card) => card.id !== id);
+//     setCards(deleted);
+//     setTotal(cards.length-1);
+  
+//   alert("The post has been deleted!")
+// };
+
+  
   return (
     <>
       
-      <ul>
+      <ul className="walletCardsList">
         {allCards.map((credit, index) => {
           return (
             <li
               key={index}
+              
               className={toggleActiveStyle(index)}
               onClick={() => {
                 toggleActive(index);
@@ -66,7 +79,7 @@ const Ewallet = () => {
                   </div>
                 </div>
               </div>
-              {/* <button onClick={}>Delete card</button> */}
+              {/* <button onClick={removeItem}>Delete card</button> */}
             </li>
           );
         })}

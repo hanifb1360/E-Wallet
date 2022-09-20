@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addNewCard, fetchRandomUser } from "../redux/cardSlice";
-import Modal from "react-modal";
+// import Modal from "react-modal";
 import "../styles/Card.css";
 
 const cardData = {
@@ -22,7 +22,7 @@ const Card = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState(cardData);
   const [error, setError] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
   const navigate = useNavigate();
   const customStyles = {
     content: {
@@ -83,7 +83,7 @@ const Card = () => {
       dispatch(addNewCard(values));
       setValues(cardData);
       //pop up with thank you message
-      setModalIsOpen(true);
+      // setModalIsOpen(true);
       cardData.id = Math.round(Math.random() * 1000);
       console.log(creditCard.cardInformation);
     } else {
@@ -95,9 +95,9 @@ const Card = () => {
     }
   };
 
-  const closeModal = () => {
-    navigate("/");
-  };
+  // const closeModal = () => {
+  //   navigate("/");
+  // };
 
   return (
     <div className="add-card-container">
@@ -130,11 +130,14 @@ const Card = () => {
       {/* Credit card form */}
 
       <div>
-        <form className="myForm" onSubmit={handleSubmit}>
-          <label>
+
+
+        <form className="form" onSubmit={handleSubmit}>
+          <label className="input-label">
             {" "}
             First Name
             <input
+              className="input"
               type="text"
               name="cardFirst"
               value={values.cardFirst || ""}
@@ -142,10 +145,11 @@ const Card = () => {
             />
           </label>
 
-          <label>
+          <label className="input-label">
             {" "}
             Last Name
             <input
+              className="input"
               type="text"
               name="cardLast"
               value={values.cardLast || ""}
@@ -153,38 +157,53 @@ const Card = () => {
             />
           </label>
 
-          <label>
+          <label className="input-label">
             {" "}
             Number
-            <input maxLength="16" onChange={handleChange} name="cardNumber" />
+            <input 
+            className="input"
+            maxLength="16" 
+            onChange={handleChange} 
+            name="cardNumber" />
           </label>
-          <div>
-            <label> Expiration Date</label>
-            <div>
+          
+          <section className="expiryContainer">
+            <label className="expiry-abel"> Expiration Date</label>
+
+            <div className="expiry-fields-box">
+
+            <div className="expiry-fields"></div>
+      
+            <label className="input-label">
               {" "}
               Month
               <input
+                className="input"
                 type="text"
                 maxLength="2"
                 name="cardMonth"
                 onChange={handleChange}
               />
-            </div>
-            <div>
+            </label>
+            <label className="input-label">
               {" "}
               Year
               <input
+                className="input"
                 type="text"
                 maxLength="2"
                 name="cardYear"
                 onChange={handleChange}
               />
+              
+            </label>
             </div>
-          </div>
+          </section>
 
-          <label>
+          <label className="input-label ccv">
             CCV
             <input
+              className="input"
               type="text"
               maxLength="3"
               name="ccv"
@@ -192,7 +211,7 @@ const Card = () => {
             />
           </label>
 
-          <select name="bankName" onChange={handleChange}>
+          <select className="select"  name="bankName" onChange={handleChange}>
             <option value="" disabled selected>
               Select bank name{" "}
             </option>
@@ -201,18 +220,19 @@ const Card = () => {
             <option value="American Express"> American Express </option>
           </select>
           {error && <p>Something is wrong</p>}
-          <button> Submit </button>
+          <button className="submitBtn"> Submit </button>
         </form>
       </div>
-      <Modal
+      {/* <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
+        ariaHideApp={false}
         contentLabel="Card Added!"
       >
         <h2>Card is added!</h2>
         <button onClick={closeModal}>close</button>
-      </Modal>
+      </Modal> */}
     </div>
   );
 };

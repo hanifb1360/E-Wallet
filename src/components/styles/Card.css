@@ -6,17 +6,19 @@
 }
 
 
-.myForm {
-  margin-top: 1rem;
+.form {
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
-  background-color: rgb(114, 114, 114);
+  color: white;
+  background-color: rgb(37, 100, 131);
   padding: 10%;
   border-radius: 20px;
-  color: white;
+  margin-bottom: 5%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
+  width: 250px;
 }
 
 .creditCard {
@@ -30,6 +32,23 @@
   color: white;
   background-color: rgb(20, 20, 20);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.input-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 15px;
+
+}
+
+.input {
+    border-radius: 15px;
+    border: none;
+    padding: 5px;
+    
 }
 
 .number {
@@ -50,6 +69,28 @@
 .label {
   font-size: 14px;
 }
+.expiryContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 30px;
+    
+}
+
+.expiry-abel {
+    font-weight: 200;
+    font-size: 14px;
+}
+
+
+.expiry-fields{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
 
 .expiry {
   display: flex;
@@ -66,3 +107,22 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.ccv {
+    margin-top: 5%;
+}
+
+.select {
+    margin-top: 10%;
+}
+
+.submitBtn {
+    margin-top: 5%;
+    border: none;
+    background-color: rgb(11, 200, 137);
+    color: rgb(61, 61, 61);
+    padding: 10px 20px;
+    border-radius: 10px;
+
+}
+
