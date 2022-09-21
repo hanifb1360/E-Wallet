@@ -54,14 +54,14 @@ const Ewallet = () => {
                 toggleActive(index);
               }}
             >
-              <div className="creditCard">
+              <div className="creditCard creditCard-wallet">
                 <div className="logo">{credit.bankName}</div>
 
                 <div className="number">{credit.cardNumber}</div>
                 <span className="ccv">{credit.ccv}</span>
                 <div className="info">
                   <div className="name">
-                    <div className="label">
+                    <div className="card-holder-label">
                       CARDHOLDER'S NAME
                     </div>
                     <div className="nameContainer">

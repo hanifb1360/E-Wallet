@@ -3,7 +3,7 @@
 }
 
 .active {
-  border: 20px solid aqua;
+  border: 10px solid aqua;
   border-radius: 25px;
   background-color: aqua;
 }
@@ -19,4 +19,20 @@
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+}
+
+.creditCard-wallet {
+  margin: 30px;
+}
+
+.card-holder-label {
+  font-size: 11px;
+}
+
+.nameContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  font-size: 20px;
 }

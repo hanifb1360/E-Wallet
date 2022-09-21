@@ -45,7 +45,7 @@ const Card = () => {
         return /^[0-9]+$/;
 
       case "cardMonth":
-        return /^([1-9]|1[012])$/;
+        return /^([0-9]|1[012])$/;
 
       case "cardYear":
         return /^[0-9]+$/;
@@ -110,7 +110,7 @@ const Card = () => {
         <span className="ccv">{values.ccv}</span>
         <div className="info">
           <div className="name">
-            <div className="label">CARDHOLDER'S NAME</div>
+            <div className="card-holder-label">CARDHOLDER'S NAME</div>
             <div className="nameContainer">
               <p className="card-holder-name">{values.cardFirst}</p>
               <p className="card-holder-name">{values.cardLast}</p>

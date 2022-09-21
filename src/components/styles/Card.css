@@ -102,12 +102,17 @@
   text-transform: uppercase;
 }
 
-.nameContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.card-holder-label {
+  font-size: 11px;
 }
 
+.nameContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  font-size: 20px;
+}
 .ccv {
     margin-top: 5%;
 }
