@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addNewCard, fetchRandomUser } from "../redux/cardSlice";
-// import Modal from "react-modal";
+import Modal from "react-modal";
 import "../styles/Card.css";
 
 const cardData = {
@@ -22,7 +22,7 @@ const Card = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState(cardData);
   const [error, setError] = useState(false);
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const navigate = useNavigate();
   const customStyles = {
     content: {
@@ -83,7 +83,7 @@ const Card = () => {
       dispatch(addNewCard(values));
       setValues(cardData);
       //pop up with thank you message
-      // setModalIsOpen(true);
+       setModalIsOpen(true);
       cardData.id = Math.round(Math.random() * 1000);
       console.log(creditCard.cardInformation);
     } else {
@@ -95,9 +95,9 @@ const Card = () => {
     }
   };
 
-  // const closeModal = () => {
-  //   navigate("/");
-  // };
+  const closeModal = () => {
+    navigate("/ewallet");
+  };
 
   return (
     <div className="add-card-container">
@@ -223,7 +223,7 @@ const Card = () => {
           <button className="submitBtn"> Submit </button>
         </form>
       </div>
-      {/* <Modal
+      <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
@@ -232,7 +232,7 @@ const Card = () => {
       >
         <h2>Card is added!</h2>
         <button onClick={closeModal}>close</button>
-      </Modal> */}
+      </Modal>
     </div>
   );
 };

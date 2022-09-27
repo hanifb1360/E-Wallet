@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/Ewallet.css";
 import { activeCardFn } from "../redux/cardSlice";
@@ -7,23 +7,31 @@ const Ewallet = () => {
   const creditCard = useSelector((state) => state.cardInfo);
   const dispatch = useDispatch();
   const [state, setState] = useState(creditCard);
-
-  useEffect(() => {
-    console.log("redux state", creditCard);
-  }, [creditCard]);
+  const [cards, setCards] = useState();
 
   const toggleActive = (index) => {
-    setState({ ...state, activeObject: state.cardInformation[index] });
-    dispatch(activeCardFn(state.cardInformation[index]));
+    setState({
+      ...creditCard,
+      activeObject: creditCard.cardInformation[index],
+    });
+    dispatch(activeCardFn(creditCard.cardInformation[index]));
   };
 
-  const activeCard = state.cardInformation[state.activeObject];
+  const activeCard = creditCard.cardInformation[creditCard.activeObject];
 
-  const inactiveCards = state.cardInformation.filter((c, index) => {
-    return state.activeObject !== index;
+  const inactiveCards = creditCard.cardInformation.filter((c, index) => {
+    return creditCard.activeObject !== index;
   });
 
-  const allCards = [activeCard, ...inactiveCards].filter(Boolean);
+ 
+
+  useEffect(() => {
+    setCards([activeCard, ...inactiveCards].filter(Boolean))
+  
+    
+  }, [activeCard, inactiveCards])
+  
+
 
   const toggleActiveStyle = (index) => {
     if (state.cardInformation[index] === state.activeObject) {
@@ -33,20 +41,21 @@ const Ewallet = () => {
     }
   };
 
-  // delete function
+ 
 
-  //   const removeItem =(id) => {
-  //     const deleted = creditCard.filter((card) => card.id !== id);
-  //     setCards(deleted);
-  //     setTotal(cards.length-1);
+    const removeItem =(id) => {
+      const filtered = cards.filter((card) => card.id !== id);
+      setCards(filtered);
+      
+      
 
-  //   alert("The post has been deleted!")
-  // };
+    alert("The post has been deleted!")
+  };
 
   return (
     <>
       <ul className="walletCardsList">
-        {allCards.map((creditCard, index) => {
+        {cards && cards.map((creditCard, index) => {
           return (
             <li
               key={index}
@@ -64,7 +73,10 @@ const Ewallet = () => {
                   <div className="name">
                     <div className="card-holder-label">CARDHOLDER'S NAME</div>
                     <div className="nameContainer">
-                      <p className="card-holder-name"> {creditCard.cardFirst}</p>
+                      <p className="card-holder-name">
+                        {" "}
+                        {creditCard.cardFirst}
+                      </p>
                       <p className="card-holder-name"> {creditCard.cardLast}</p>
                     </div>
                   </div>
@@ -78,7 +90,7 @@ const Ewallet = () => {
                   </div>
                 </div>
               </div>
-              {/* <button onClick={removeItem}>Delete card</button> */}
+              <button onClick={removeItem}>Delete card</button>
             </li>
           );
         })}

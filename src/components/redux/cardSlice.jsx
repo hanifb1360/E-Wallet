@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { useState } from "react";
 
 export const fetchRandomUser = createAsyncThunk(
   "card/fetchRandomUser",
@@ -6,6 +7,8 @@ export const fetchRandomUser = createAsyncThunk(
     return fetch("https://randomuser.me/api").then((res) => res.json());
   }
 );
+
+
 
 const initialState = {
   activeObject: null,
@@ -15,8 +18,8 @@ const initialState = {
   cardInformation: [
     {
       id: "1",
-      cardFirst: "Hanif",
-      cardLast: "Bahari",
+      cardFirst: "",
+      cardLast: "",
       cardNumber: "1230067891000121",
       cardMonth: "03",
       cardYear: "22",
@@ -26,6 +29,7 @@ const initialState = {
     },
   ],
 };
+
 
 const cardSlice = createSlice({
   name: "card",
@@ -55,6 +59,8 @@ const cardSlice = createSlice({
 
     [fetchRandomUser.fulfilled]: (state, action) => {
       state.status = "success";
+
+      
       const { first } = action.payload.results[0].name;
       const { last } = action.payload.results[0].name;
       // let wholeName = first + " " + last;
