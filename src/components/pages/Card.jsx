@@ -45,7 +45,7 @@ const Card = () => {
         return /^[0-9]+$/;
 
       case "cardMonth":
-        return /^([0-9]|1[012])$/;
+        return /^(0?[1-9]|1[012])$/;
 
       case "cardYear":
         return /^[0-9]+$/;

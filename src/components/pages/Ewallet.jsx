@@ -36,7 +36,7 @@ const Ewallet = () => {
   // delete function
 
   //   const removeItem =(id) => {
-  //     const deleted = cards.filter((card) => card.id !== id);
+  //     const deleted = creditCard.filter((card) => card.id !== id);
   //     setCards(deleted);
   //     setTotal(cards.length-1);
 
@@ -46,7 +46,7 @@ const Ewallet = () => {
   return (
     <>
       <ul className="walletCardsList">
-        {allCards.map((credit, index) => {
+        {allCards.map((creditCard, index) => {
           return (
             <li
               key={index}
@@ -56,16 +56,16 @@ const Ewallet = () => {
               }}
             >
               <div className="creditCard creditCard-wallet">
-                <div className="logo">{credit.bankName}</div>
+                <div className="logo">{creditCard.bankName}</div>
 
-                <div className="number">{credit.cardNumber}</div>
-                <span className="ccv">{credit.ccv}</span>
+                <div className="number">{creditCard.cardNumber}</div>
+                <span className="ccv">{creditCard.ccv}</span>
                 <div className="info">
                   <div className="name">
                     <div className="card-holder-label">CARDHOLDER'S NAME</div>
                     <div className="nameContainer">
-                      <p className="card-holder-name"> {credit.cardFirst}</p>
-                      <p className="card-holder-name"> {credit.cardLast}</p>
+                      <p className="card-holder-name"> {creditCard.cardFirst}</p>
+                      <p className="card-holder-name"> {creditCard.cardLast}</p>
                     </div>
                   </div>
 
@@ -73,7 +73,7 @@ const Ewallet = () => {
                     <div className="label">VALID UP TO</div>
                     <div>
                       {" "}
-                      {credit.cardMonth} / {credit.cardYear}
+                      {creditCard.cardMonth} / {creditCard.cardYear}
                     </div>
                   </div>
                 </div>
