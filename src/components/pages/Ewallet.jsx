@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/Ewallet.css";
 import { activeCardFn } from "../redux/cardSlice";
@@ -7,7 +7,11 @@ const Ewallet = () => {
   const creditCard = useSelector((state) => state.cardInfo);
   const dispatch = useDispatch();
   const [state, setState] = useState(creditCard);
-  console.log("creditCard", creditCard);
+
+  useEffect(() => {
+    console.log("redux state", creditCard);
+  }, [creditCard]);
+
   const toggleActive = (index) => {
     setState({ ...state, activeObject: state.cardInformation[index] });
     dispatch(activeCardFn(state.cardInformation[index]));
@@ -31,24 +35,21 @@ const Ewallet = () => {
 
   // delete function
 
-//   const removeItem =(id) => {
-//     const deleted = cards.filter((card) => card.id !== id);
-//     setCards(deleted);
-//     setTotal(cards.length-1);
-  
-//   alert("The post has been deleted!")
-// };
+  //   const removeItem =(id) => {
+  //     const deleted = cards.filter((card) => card.id !== id);
+  //     setCards(deleted);
+  //     setTotal(cards.length-1);
 
-  
+  //   alert("The post has been deleted!")
+  // };
+
   return (
     <>
-      
       <ul className="walletCardsList">
         {allCards.map((credit, index) => {
           return (
             <li
               key={index}
-              
               className={toggleActiveStyle(index)}
               onClick={() => {
                 toggleActive(index);
@@ -61,9 +62,7 @@ const Ewallet = () => {
                 <span className="ccv">{credit.ccv}</span>
                 <div className="info">
                   <div className="name">
-                    <div className="card-holder-label">
-                      CARDHOLDER'S NAME
-                    </div>
+                    <div className="card-holder-label">CARDHOLDER'S NAME</div>
                     <div className="nameContainer">
                       <p className="card-holder-name"> {credit.cardFirst}</p>
                       <p className="card-holder-name"> {credit.cardLast}</p>

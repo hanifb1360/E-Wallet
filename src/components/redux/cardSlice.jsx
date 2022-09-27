@@ -2,11 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchRandomUser = createAsyncThunk(
   "card/fetchRandomUser",
-  async (thunkAPI) => {
-    const res = await fetch("https://randomuser.me/api/").then((data) =>
-      data.json()
-    );
-    return res;
+  async () => {
+    return fetch("https://randomuser.me/api").then((res) => res.json());
   }
 );
 
@@ -49,7 +46,7 @@ const cardSlice = createSlice({
       }
     },
   },
-  extraReducer: {
+  extraReducers: {
     [fetchRandomUser.pending]: (state) => {
       state.status = "loading...";
 
@@ -58,11 +55,16 @@ const cardSlice = createSlice({
 
     [fetchRandomUser.fulfilled]: (state, action) => {
       state.status = "success";
-      const { first, last } = action.payload.name;
-      let wholeName = first + " " + last;
+      const { first } = action.payload.results[0].name;
+      const { last } = action.payload.results[0].name;
+      // let wholeName = first + " " + last;
+
       // for (let i = 0; i < state.cardInformation.length; i++) {
-      state.cardInformation[0].cardFirst = "aaaa";
-      state.cardInformation[0].cardLast = "aaaa";
+      let newState = [...state.cardInformation];
+      newState[0].cardFirst = first;
+      newState[0].cardLast = last;
+      state.cardInformation = newState;
+
       // }
     },
     [fetchRandomUser.rejected]: (state) => {
