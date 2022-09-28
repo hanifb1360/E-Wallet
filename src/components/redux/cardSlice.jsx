@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { useState } from "react";
+
 
 export const fetchRandomUser = createAsyncThunk(
   "card/fetchRandomUser",

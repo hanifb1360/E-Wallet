@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addNewCard, fetchRandomUser } from "../redux/cardSlice";
+import { addNewCard} from "../redux/cardSlice";
 import Modal from "react-modal";
 import "../styles/Card.css";
 
@@ -32,6 +32,20 @@ const Card = () => {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      width: "350px",
+      height: "250px",
+      background: 'rgb(32, 145, 173)',
+      borderRadius: '14px',
+      outline: 'none',
+      color: '#fff',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-around',
+      flexDirection: "column",
+      fontFamily: "'Poppins', sans-serif",
+      letterSpacing: "2px"
+      
+      
     },
   };
 
@@ -231,7 +245,7 @@ const Card = () => {
         contentLabel="Card Added!"
       >
         <h2>Card is added!</h2>
-        <button onClick={closeModal}>close</button>
+        <button className="modalBtn" onClick={closeModal}>X</button>
       </Modal>
     </div>
   );

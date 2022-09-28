@@ -7,7 +7,7 @@ const Ewallet = () => {
   const creditCard = useSelector((state) => state.cardInfo);
   const dispatch = useDispatch();
   const [state, setState] = useState(creditCard);
-  const [cards, setCards] = useState();
+  // const [cards, setCards] = useState();
 
   const toggleActive = (index) => {
     setState({
@@ -23,14 +23,15 @@ const Ewallet = () => {
     return creditCard.activeObject !== index;
   });
 
- 
+  const allCards = [activeCard, ...inactiveCards].filter(Boolean);
 
-  useEffect(() => {
-    setCards([activeCard, ...inactiveCards].filter(Boolean))
+  // useEffect(() => {
+  //   setCards([activeCard, ...inactiveCards].filter(Boolean))
   
     
-  }, [activeCard, inactiveCards])
+  // }, [activeCard, inactiveCards]);
   
+ 
 
 
   const toggleActiveStyle = (index) => {
@@ -43,19 +44,19 @@ const Ewallet = () => {
 
  
 
-    const removeItem =(id) => {
-      const filtered = cards.filter((card) => card.id !== id);
-      setCards(filtered);
+    // const removeItem =(id) => {
+    //   const filtered = cards.filter((card) => card.id !== id);
+    //   setCards(filtered);
       
       
 
-    alert("The post has been deleted!")
-  };
+    // alert("The post has been deleted!")
+  // };
 
   return (
     <>
       <ul className="walletCardsList">
-        {cards && cards.map((creditCard, index) => {
+        {allCards && allCards.map((creditCard, index) => {
           return (
             <li
               key={index}
@@ -90,13 +91,13 @@ const Ewallet = () => {
                   </div>
                 </div>
               </div>
-              <button onClick={removeItem}>Delete card</button>
+              {/* <button className="deleteBtn" onClick={removeItem}>X</button> */}
             </li>
           );
         })}
       </ul>
     </>
   );
-};
+      };
 
 export default Ewallet;

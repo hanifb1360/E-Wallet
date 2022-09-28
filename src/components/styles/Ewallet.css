@@ -36,3 +36,18 @@
   width: 200px;
   font-size: 20px;
 }
+
+.deleteBtn {
+  padding: 2px 15px;
+  border: none;
+  background-color: crimson;
+  color: white;
+  border-radius: 20px;
+
+}
+.deleteBtn:hover {
+  
+  background-color: rgb(172, 15, 46);
+  
+
+}
